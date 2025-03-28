@@ -1,0 +1,239 @@
++311
+Original file line number	Diff line number	Diff line change
+@@ -0,0 +1,311 @@
+<!DOCTYPE html>
+ <html lang="PT-BR">
+ <head>
+    
+     <title>Document</title>
+     <link rel="stylesheet" type="text/css" href="">
+     <script src="jquery.js"></script>
+     <script>
+        
+     </script>
+<style>
+.site{
+width: 1000px; ;
+height: 700px; ;
+background-color:red ;
+}
+.um{
+width:inherit ;
+height: 30px;;
+background-color: yellow;
+}
+.dois{
+width:inherit ;
+height:100px ;
+background-color: black;
+}
+.três{
+width:inherit ;
+height:30px ;
+background-color:blueviolet ;
+}
+.quatro{
+width:inherit ;
+height: 450px; ;
+background-color:blue ;
+}
+.cinco{
+width:inherit ;
+height:30px ;
+background-color:blanchedalmond ;
+}
+.seis{
+width:inherit ;
+height:30px ;
+background-color:darkgreen ;
+}
+.sete{
+width:inherit ;
+height: 30px; ;
+background-color:orange ;
+}
+.um1{
+width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.um2{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.um3{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.dois1{
+    width:10% ;
+height:inherit;
+background-color:brown ;
+display:inline-block
+float:right;
+}
+.dois2{
+width: 10px; ;
+height:inherit;
+background-color:black ;
+display:inline-block
+float:right;
+}
+.dois3{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.dois4{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.dois5{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.três1{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.três2{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.três{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.cinco1{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.cinco2{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.cinco3{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.cinco4{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.sete1{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.sete2{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.sete3{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.sete4{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+.sete5{
+    width: ;
+height:inherit;
+background-color: ;
+display:inline-block
+float:right;
+}
+</style>
+ </head>
+ <body>
+    <div class="site">
+     
+    <div class="um">
+    <div class="um1"></div>
+    <div class="um2"></div>
+    <div class="um3"></div>
+    </div>
+    <div class="dois">
+        <div class="dois1"></div>
+        <div class="dois2"></div>
+        <div class="dois3"></div>
+        <div class="dois4"></div>
+        <div class="dois5"></div>
+    </div>
+    <div class="três">
+        <div class="três1"></div>
+        <div class="três2"></div><div class=""></div>
+    </div>
+    <div class="quatro">
+    </div>
+    <div class="cinco">
+        <div class="cinco1"></div>
+        <div class="cinco2"></div>
+        <div class="cinco3"></div>
+        <div class="cinco4"></div>
+    </div>
+    <div class="seis">
+    </div>
+    <div class="sete">
+        <div class="sete1"></div>
+        <div class="sete2"></div>
+        <div class="sete3"></div>
+        <div class="sete4"></div>
+        <div class="sete5"></div>
+    
+    </div>
+    
+    
+    </div>
+    
+    </body>
+ </html>
