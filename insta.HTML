@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Completo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .site {
+            width: 100%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .um {
+            height: 50px;
+            background-color: yellow;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .um1, .um2, .um3 {
+            width: 30%;
+            height: 100%;
+            background-color: red;
+            display: inline-block;
+        }
+
+        .dois {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px;
+        }
+
+        .dois1, .dois2, .dois3, .dois4, .dois5 {
+            width: 18%;
+            height: 60px;
+            background-color: brown;
+            display: inline-block;
+        }
+
+        .três {
+            background-color: blueviolet;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .três1, .três2 {
+            width: 48%;
+            height: 100%;
+            background-color: orange;
+        }
+
+        .quatro {
+            background-color: blue;
+            height: 400px;
+            margin: 10px 0;
+        }
+
+        .cinco {
+            background-color: blanchedalmond;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .cinco1, .cinco2, .cinco3, .cinco4 {
+            width: 22%;
+            height: 100%;
+            background-color: green;
+        }
+
+        .seis {
+            background-color: darkgreen;
+            height: 100px;
+        }
+
+        .sete {
+            background-color: orange;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .sete1, .sete2, .sete3, .sete4, .sete5 {
+            width: 18%;
+            height: 100%;
+            background-color: red;
+        }
+
+        footer {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: lightgray;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .box {
+            background-color: #e0e0e0;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="site">
+        <!-- Cabeçalho -->
+        <div class="um">
+            <div class="um1">Logo</div>
+            <div class="um2">Menu</div>
+            <div class="um3">Pesquisar</div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="dois">
+            <div class="dois1">Item 1</div>
+            <div class="dois2">Item 2</div>
+            <div class="dois3">Item 3</div>
+            <div class="dois4">Item 4</div>
+            <div class="dois5">Item 5</div>
+        </div>
+
+        <div class="três">
+            <div class="três1">Notícias</div>
+            <div class="três2">Anúncios</div>
+        </div>
+
+        <div class="quatro">
+            <h2>Conteúdo Principal</h2>
+            <p>Este é o conteúdo central da página. Aqui você pode adicionar textos, imagens ou qualquer outro conteúdo que quiser.</p>
+        </div>
+
+        <div class="cinco">
+            <div class="cinco1">Sobre</div>
+            <div class="cinco2">Contate-nos</div>
+            <div class="cinco3">FAQs</div>
+            <div class="cinco4">Termos</div>
+        </div>
+
+        <div class="seis">
+            <h3>Links Úteis</h3>
+            <p>Links importantes podem ser colocados aqui, como por exemplo: <a href="#">Privacidade</a>, <a href="#">Cookies</a>.</p>
+        </div>
+
+        <div class="sete">
+            <div class="sete1">Redes Sociais</div>
+            <div class="sete2">Facebook</div>
+            <div class="sete3">Twitter</div>
+            <div class="sete4">Instagram</div>
+            <div class="sete5">LinkedIn</div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Barra Lateral -->
+    <div class="sidebar">
+        <h3>Menu Lateral</h3>
+        <div class="box">
+            <p>Conteúdo adicional pode ser colocado aqui.</p>
+        </div>
+        <div class="box">
+            <p>Mais informações úteis.</p>
+        </div>
+    </div>
+
+</body>
+</html>
 
