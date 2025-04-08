@@ -5,35 +5,35 @@
     <link rel="stylesheet" type="text/css" href="">
     <script src="jquery.js"></script>
     <script>
-        alert("javascript carregado");
+        alert("javascript");
     </script>
 </head>
 <body>
     <fieldset>
         <legend>CALCULADORA</legend>
-        <input type="text" id="campo" disabled>
-        <br><br>
+        <input type="number" id="campo">
+        <br>
         <button id="btn_um">1</button>
         <button id="btn_dois">2</button>
         <button id="btn_tres">3</button>
         <button id="btn_adicao">+</button>
         <button id="btn_porcentagem">%</button>
 
-        <br><br>
+        <br>
         <button id="btn_quatro">4</button>
         <button id="btn_cinco">5</button>
         <button id="btn_seis">6</button>
         <button id="btn_subtracao">-</button>
         <button id="btn_potencia">^</button>
 
-        <br><br>
+        <br>
         <button id="btn_sete">7</button>
         <button id="btn_oito">8</button>
         <button id="btn_nove">9</button>
         <button id="btn_divisao">/</button>
         <button id="btn_pa">(</button>
 
-        <br><br>
+        <br>
         <button id="btn_ponto">.</button>
         <button id="btn_zero">0</button>
         <button id="btn_virgula">,</button>
@@ -41,83 +41,7 @@
         <button id="btn_pf">)</button>
         <br><br>
         <button id="btn_igual">=</button>
-        <button id="btn_reiniciar">C</button>
+        <button id="btn_reiniciar">c</button>
     </fieldset>
-
-    <script>
-        $(document).ready(function() {
-            var campo = $("#campo");
-            var operador = null;
-            var primeiroValor = null;
-
-            // Função para adicionar um dígito ao campo
-            $("button:not(#btn_igual, #btn_reiniciar, #btn_adicao, #btn_subtracao, #btn_multiplicacao, #btn_divisao, #btn_porcentagem, #btn_potencia, #btn_ponto, #btn_virgula, #btn_pa, #btn_pf)").click(function() {
-                campo.val(campo.val() + $(this).text());
-            });
-
-            // Função para definir o operador e armazenar o primeiro valor
-            $("#btn_adicao, #btn_subtracao, #btn_multiplicacao, #btn_divisao, #btn_porcentagem, #btn_potencia").click(function() {
-                primeiroValor = parseFloat(campo.val().replace(",", ".")); // Usar replace para lidar com a vírgula brasileira
-                operador = $(this).text();
-                campo.val("");
-            });
-
-            // Função para realizar o cálculo
-            $("#btn_igual").click(function() {
-                if (primeiroValor !== null && operador) {
-                    var segundoValor = parseFloat(campo.val().replace(",", ".")); // Usar replace para lidar com a vírgula brasileira
-                    var resultado;
-
-                    switch (operador) {
-                        case "+":
-                            resultado = primeiroValor + segundoValor;
-                            break;
-                        case "-":
-                            resultado = primeiroValor - segundoValor;
-                            break;
-                        case "x":
-                            resultado = primeiroValor * segundoValor;
-                            break;
-                        case "/":
-                            resultado = primeiroValor / segundoValor;
-                            break;
-                        case "%":
-                            resultado = primeiroValor / 100 * segundoValor; // Exemplo de como pode funcionar a porcentagem
-                            break;
-                        case "^":
-                            resultado = Math.pow(primeiroValor, segundoValor);
-                            break;
-                    }
-
-                    campo.val(resultado.toString().replace(".", ",")); // Converter de volta para string com vírgula
-                    primeiroValor = null;
-                    operador = null;
-                }
-            });
-
-            // Função para reiniciar a calculadora
-            $("#btn_reiniciar").click(function() {
-                campo.val("");
-                primeiroValor = null;
-                operador = null;
-            });
-
-            // Adicionando funcionalidade para ponto/vírgula
-            $("#btn_ponto, #btn_virgula").click(function() {
-                if (campo.val().indexOf(".") === -1 && campo.val().indexOf(",") === -1) {
-                    campo.val(campo.val() + "."); // Usamos ponto internamente para o JavaScript
-                }
-            });
-
-            // TODO: Adicionar funcionalidades para parênteses
-            $("#btn_pa").click(function() {
-                campo.val(campo.val() + "(");
-            });
-
-            $("#btn_pf").click(function() {
-                campo.val(campo.val() + ")");
-            });
-        });
-    </script>
 </body>
 </html>
