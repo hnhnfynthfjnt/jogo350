@@ -1,47 +1,241 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-br">
 <head>
-    <title>Calculadora</title>
-    <link rel="stylesheet" type="text/css" href="">
-    <script src="jquery.js"></script>
-    <script>
-        alert("javascript");
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Completa</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .calculadora {
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .display {
+            background-color: #444;
+            color: white;
+            font-size: 24px;
+            text-align: right;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden; /* Para texto longo */
+        }
+
+        .botoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #777;
+        }
+
+        .operador {
+            background-color: #ff9900;
+        }
+
+        .operador:hover {
+            background-color: #cc7a00;
+        }
+
+        .igual {
+            grid-column: span 2;
+            background-color: #4CAF50;
+        }
+
+        .igual:hover {
+            background-color: #45a049;
+        }
+
+        .limpar {
+            background-color: #f44336;
+        }
+
+        .limpar:hover {
+            background-color: #d32f2f;
+        }
+    </style>
 </head>
 <body>
-    <fieldset>
-        <legend>CALCULADORA</legend>
-        <input type="number" id="campo">
-        <br>
-        <button id="btn_um">1</button>
-        <button id="btn_dois">2</button>
-        <button id="btn_tres">3</button>
-        <button id="btn_adicao">+</button>
-        <button id="btn_porcentagem">%</button>
+    <div class="calculadora">
+        <div class="display">0</div>
+        <div class="botoes">
+            <button class="limpar">C</button>
+            <button>+/-</button>
+            <button>%</button>
+            <button class="operador">/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operador">*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operador">-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operador">+</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="igual">=</button>
+        </div>
+    </div>
 
-        <br>
-        <button id="btn_quatro">4</button>
-        <button id="btn_cinco">5</button>
-        <button id="btn_seis">6</button>
-        <button id="btn_subtracao">-</button>
-        <button id="btn_potencia">^</button>
+    <script>
+        const display = document.querySelector('.display');
+        const botoes = document.querySelector('.botoes');
+        let operador = null;
+        let primeiroValor = null;
+        let esperandoSegundoValor = false;
 
-        <br>
-        <button id="btn_sete">7</button>
-        <button id="btn_oito">8</button>
-        <button id="btn_nove">9</button>
-        <button id="btn_divisao">/</button>
-        <button id="btn_pa">(</button>
+        function atualizarDisplay(valor) {
+            display.textContent = valor;
+        }
 
-        <br>
-        <button id="btn_ponto">.</button>
-        <button id="btn_zero">0</button>
-        <button id="btn_virgula">,</button>
-        <button id="btn_multiplicacao">x</button>
-        <button id="btn_pf">)</button>
-        <br><br>
-        <button id="btn_igual">=</button>
-        <button id="btn_reiniciar">c</button>
-    </fieldset>
+        function limparDisplay() {
+            display.textContent = '0';
+            operador = null;
+            primeiroValor = null;
+            esperandoSegundoValor = false;
+        }
+
+        function lidarComNumero(numero) {
+            if (esperandoSegundoValor) {
+                display.textContent = numero;
+                esperandoSegundoValor = false;
+            } else {
+                display.textContent = display.textContent === '0' ? numero : display.textContent + numero;
+            }
+        }
+
+        function lidarComDecimal() {
+            if (!display.textContent.includes('.')) {
+                display.textContent += '.';
+            }
+        }
+
+        function lidarComOperador(op) {
+            if (operador && esperandoSegundoValor) {
+                operador = op;
+                return;
+            }
+
+            if (primeiroValor === null) {
+                primeiroValor = parseFloat(display.textContent);
+            } else if (operador) {
+                const segundoValor = parseFloat(display.textContent);
+                let resultado = calcular(primeiroValor, segundoValor, operador);
+                display.textContent = resultado;
+                primeiroValor = resultado;
+            }
+
+            esperandoSegundoValor = true;
+            operador = op;
+        }
+
+        function calcular(num1, num2, op) {
+            switch (op) {
+                case '+':
+                    return num1 + num2;
+                case '-':
+                    return num1 - num2;
+                case '*':
+                    return num1 * num2;
+                case '/':
+                    if (num2 === 0) return 'Erro!';
+                    return num1 / num2;
+                case '%':
+                    return num1 / 100; // Considera apenas a operação de porcentagem no primeiro número
+                default:
+                    return num2;
+            }
+        }
+
+        function lidarComIgual() {
+            if (primeiroValor !== null && operador && !esperandoSegundoValor) {
+                const segundoValor = parseFloat(display.textContent);
+                display.textContent = calcular(primeiroValor, segundoValor, operador);
+                primeiroValor = null;
+                operador = null;
+                esperandoSegundoValor = false;
+            }
+        }
+
+        function lidarComPorcentagem() {
+            const valorAtual = parseFloat(display.textContent);
+            display.textContent = calcular(valorAtual, 0, '%');
+        }
+
+        function lidarComInverterSinal() {
+            const valorAtual = parseFloat(display.textContent);
+            display.textContent = -valorAtual;
+        }
+
+        botoes.addEventListener('click', (evento) => {
+            const alvo = evento.target;
+
+            if (!alvo.matches('button')) {
+                return;
+            }
+
+            if (alvo.classList.contains('limpar')) {
+                limparDisplay();
+                return;
+            }
+
+            if (alvo.textContent === '.') {
+                lidarComDecimal();
+                return;
+            }
+
+            if (alvo.classList.contains('operador')) {
+                lidarComOperador(alvo.textContent);
+                return;
+            }
+
+            if (alvo.textContent === '=') {
+                lidarComIgual();
+                return;
+            }
+
+            if (alvo.textContent === '%') {
+                lidarComPorcentagem();
+                return;
+            }
+
+            if (alvo.textContent === '+/-') {
+                lidarComInverterSinal();
+                return;
+            }
+
+            lidarComNumero(alvo.textContent);
+        });
+    </script>
 </body>
 </html>
